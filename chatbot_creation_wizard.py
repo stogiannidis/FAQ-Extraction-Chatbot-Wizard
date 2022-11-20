@@ -1,4 +1,3 @@
-
 import sys
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -8,10 +7,9 @@ from emoji import emojize
 import re
 import cohere
 import streamlit as st
-# from selenium import webdriver
-# from webdriver_manager.chrome import ChromeDriverManager
-
-# driver = webdriver.Chrome(ChromeDriverManager().install())
+from selenium import webdriver
+from chromedriver_py import binary_path
+from selenium.webdriver.chrome.service import Service
 
 api_key = st.secrets["COHERE_API_KEY"]
 co = cohere.Client(api_key)
@@ -94,13 +92,21 @@ def get_html_raw(url: str) -> str:
 
 # Get the rendered HTML from a URL as it is seen from a browswer
 def get_html_chrome(url: str) -> str:
+  service_object = Service(binary_path)
   # get the html using selenium headless browser
   chrome_options = webdriver.ChromeOptions()
   chrome_options.add_argument('--headless')
   chrome_options.add_argument('--no-sandbox')
   chrome_options.add_argument('--disable-dev-shm-usage')
-  driver = webdriver.Chrome('chromedriver',options=chrome_options)
-  driver.get(url)
+  driver = webdriver.Chrome(service=service_object,options=chrome_options)
+  try:
+    driver.get(url)
+  except Exception:
+    raise GenericException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                msg = "This link does not exist.",
+                statusCode = status.HTTP_400_BAD_REQUEST,
+            )
   html = driver.page_source
   return html
 
