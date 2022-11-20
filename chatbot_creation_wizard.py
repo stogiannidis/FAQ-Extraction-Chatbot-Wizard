@@ -8,6 +8,10 @@ from emoji import emojize
 import re
 import cohere
 import streamlit as st
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 api_key = st.secrets["COHERE_API_KEY"]
 co = cohere.Client(api_key)
