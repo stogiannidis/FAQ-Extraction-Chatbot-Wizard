@@ -94,7 +94,7 @@ def get_html_raw(url: str) -> str:
 
 # Get the rendered HTML from a URL as it is seen from a browswer
 def get_html_chrome(url: str) -> str:
-  service_object = Service(binary_path)
+  service_object = Service("chromedriver.exe")
   # get the html using selenium headless browser
   chrome_options = webdriver.ChromeOptions()
   chrome_options.add_argument('--headless')
