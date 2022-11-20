@@ -11,6 +11,7 @@ with header:
 # #create an input box for the user to enter a link 
 with faq_extraction:
     st.header("FAQ Extraction")
+    bot = None
     link = st.text_input("Enter a link to extract FAQ's from")
     if st.button("Extract FAQs"):
         st.write("FAQs extracted from the link are:")
