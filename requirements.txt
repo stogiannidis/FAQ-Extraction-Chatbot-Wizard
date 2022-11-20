@@ -4,5 +4,5 @@ emoji==2.2.0
 selenium==4.6.0
 streamlit==1.15.0
 transformers==4.24.0
-webdriver_manager==3.4.2
+webdriver_manager
 chromedriver-py==106.0.5249.61
