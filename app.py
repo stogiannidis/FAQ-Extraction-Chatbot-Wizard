@@ -17,18 +17,18 @@ with faq_extraction:
         bot = generate_faq_bot(link)
     
         st.subheader(f"Company name: {bot['name']}")
-        st.write(f"The sector the company operates is: {bot['sector']}")
+        st.write(f"**Sector**: {bot['sector']}")
 
-        st.write(f"FAQ 1: {bot['questions'][0]}")
-        st.write(f"Answer: {bot['answers'][0]}")
-        st.write(f"Answer (hyped): {bot['hyped'][0]}")
+        st.write(f"**FAQ 1**: {bot['questions'][0]}")
+        st.write(f"**Answer**: {bot['answers'][0]}")
+        st.write(f"**Answer (hyped)**: {bot['hyped'][0]}")
         
         st.write(f"FAQ 2: {bot['questions'][1]}")
-        st.write(f"Answer: {bot['answers'][1]}")
-        st.write(f"Answer (hyped): {bot['hyped'][1]}")
+        st.write(f"**Answer**: {bot['answers'][1]}")
+        st.write(f"**Answer (hyped)**: {bot['hyped'][1]}")
 
         st.write(f"FAQ 3: {bot['questions'][2]}")
-        st.write(f"Answer: {bot['answers'][2]}")
-        st.write(f"Answer (hyped): {bot['hyped'][2]}")
+        st.write(f"**Answer**: {bot['answers'][2]}")
+        st.write(f"**Answer (hyped)**: {bot['hyped'][2]}")
 
 
