@@ -10,7 +10,7 @@ import cohere
 import streamlit as st
 
 api_key = st.secrets["COHERE_API_KEY"]
-co = cohere.Client("api_key")
+co = cohere.Client(api_key)
 
 def _emojize(text: str) -> str:
   dic = {":quality:" : '👌',
