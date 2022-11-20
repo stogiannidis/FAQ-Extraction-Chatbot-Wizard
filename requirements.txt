@@ -2,7 +2,7 @@ selenium
 beautifulsoup4
 transformers
 emoji
-urllib
+requests
 re
 cohere
 streamlit
