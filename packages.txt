@@ -1,1 +1,1 @@
-ifirefox-esr
+firefox-esr
