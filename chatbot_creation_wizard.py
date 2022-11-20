@@ -97,9 +97,9 @@ def get_html_chrome(url: str) -> str:
   #service_object = Service(binary_path)
   # get the html using selenium headless browser
   #chrome_options = webdriver.ChromeOptions()
-  chrome_options.add_argument('--headless')
-  chrome_options.add_argument('--no-sandbox')
-  chrome_options.add_argument('--disable-dev-shm-usage')
+  # chrome_options.add_argument('--headless')
+  # chrome_options.add_argument('--no-sandbox')
+  # chrome_options.add_argument('--disable-dev-shm-usage')
   driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
   driver.get(url)
   html = driver.page_source
