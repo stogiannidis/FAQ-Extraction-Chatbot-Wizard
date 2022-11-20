@@ -14,8 +14,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from chromedriver_py import binary_path # this will get you the path variable
 
 service_object = Service(binary_path)
-#driver = webdriver.Chrome(service=service_object)
-driver = webdriver.Chrome(ChromeDriverManager().install())
+
+#driver = webdriver.Chrome(ChromeDriverManager().install())
 # deprecated but works in older selenium versions
 # driver = webdriver.Chrome(executable_path=binary_path)
 
@@ -106,7 +106,7 @@ def get_html_chrome(url: str) -> str:
   chrome_options.add_argument('--headless')
   chrome_options.add_argument('--no-sandbox')
   chrome_options.add_argument('--disable-dev-shm-usage')
-  driver = webdriver.Chrome('chromedriver',options=chrome_options)
+  driver = webdriver.Chrome(service=service_object)
   driver.get(url)
   html = driver.page_source
   return html
