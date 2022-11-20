@@ -1,8 +1,6 @@
-selenium
-beautifulsoup4
-transformers
-emoji
-requests
-regex
-cohere
-streamlit
+beautifulsoup4==4.11.1
+cohere==2.8.0
+emoji==2.2.0
+selenium==4.6.0
+streamlit==1.15.0
+transformers==4.24.0
