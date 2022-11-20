@@ -94,13 +94,13 @@ def get_html_raw(url: str) -> str:
 
 # Get the rendered HTML from a URL as it is seen from a browswer
 def get_html_chrome(url: str) -> str:
-  service_object = Service(binary_path)
+  #service_object = Service(binary_path)
   # get the html using selenium headless browser
-  chrome_options = webdriver.ChromeOptions()
+  #chrome_options = webdriver.ChromeOptions()
   chrome_options.add_argument('--headless')
   chrome_options.add_argument('--no-sandbox')
   chrome_options.add_argument('--disable-dev-shm-usage')
-  driver = webdriver.Chrome(service=service_object,options=chrome_options)
+  driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
   driver.get(url)
   html = driver.page_source
   return html
