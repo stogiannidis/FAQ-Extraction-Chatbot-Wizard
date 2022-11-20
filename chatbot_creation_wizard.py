@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
+from selenium.webdriver import FirefoxOptions
 import os 
 
 
@@ -94,13 +95,17 @@ def get_html_raw(url: str) -> str:
   html = urlopen(url).read()
   return html
 
+@st.experimental_singleton
+def installff():
+  os.system('sbase install geckodriver')
+  os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
+
+_ = installff()
 # Get the rendered HTML from a URL as it is seen from a browswer
 def get_html_chrome(url: str) -> str:
-  fireFox_options = Options()
-  fireFox_options.add_argument("--headless")
-  fireFox_options.binary_location('/usr/bin/firefox')
-  service = Service(GeckoDriverManager().install())
-  driver = webdriver.Firefox(service=service, options=fireFox_options)
+  opts = FirefoxOptions()
+  opts.add_argument("--headless")
+  browser = webdriver.Firefox(options=opts)
   driver.get(url)
   html = driver.page_source
   return html
