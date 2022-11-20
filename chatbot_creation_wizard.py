@@ -8,7 +8,6 @@ import re
 import cohere
 import streamlit as st
 from selenium import webdriver
-from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
@@ -99,7 +98,7 @@ def get_html_chrome(url: str) -> str:
   firefoxOptions = Options()
   firefoxOptions.add_argument("--headless")
   service = Service(GeckoDriverManager().install())
-  driver = webdriver.Firefox(service=service, options=firefoxOptions)
+  driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefoxOptions)
   driver.get(url)
   html = driver.page_source
   return html
