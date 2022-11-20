@@ -11,7 +11,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from chromedriver_py import binary_path # this will get you the path variable
+import os 
 
+os.environ["PATH"] += os.pathsep + "chromedriver.exe"
 
 api_key = st.secrets["COHERE_API_KEY"]
 co = cohere.Client(api_key)
