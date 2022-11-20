@@ -1,0 +1,8 @@
+selenium
+beautifulsoup4
+transformers
+emoji
+urllib
+re
+cohere
+streamlit
