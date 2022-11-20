@@ -10,11 +10,12 @@ import cohere
 import streamlit as st
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from chromedriver_py import binary_path # this will get you the path variable
 
 service_object = Service(binary_path)
-driver = webdriver.Chrome(service=service_object)
-
+#driver = webdriver.Chrome(service=service_object)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 # deprecated but works in older selenium versions
 # driver = webdriver.Chrome(executable_path=binary_path)
 
