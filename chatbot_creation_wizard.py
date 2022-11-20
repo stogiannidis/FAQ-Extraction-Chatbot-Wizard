@@ -98,6 +98,7 @@ def get_html_raw(url: str) -> str:
 def get_html_chrome(url: str) -> str:
   fireFox_options = Options()
   fireFox_options.add_argument("--headless")
+  fireFox_options.binary_location('/usr/bin/firefox')
   service = Service(GeckoDriverManager().install())
   driver = webdriver.Firefox(service=service, options=fireFox_options)
   driver.get(url)
