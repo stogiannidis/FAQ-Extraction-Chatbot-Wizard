@@ -9,11 +9,11 @@ import cohere
 import streamlit as st
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from chromedriver_py import binary_path # this will get you the path variable
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 import os 
 
-os.environ["PATH"] += os.pathsep + binary_path
 
 api_key = st.secrets["COHERE_API_KEY"]
 co = cohere.Client(api_key)
@@ -96,13 +96,10 @@ def get_html_raw(url: str) -> str:
 
 # Get the rendered HTML from a URL as it is seen from a browswer
 def get_html_chrome(url: str) -> str:
-  service_object = Service(binary_path)
-  # get the html using selenium headless browser
-  chrome_options = webdriver.ChromeOptions()
-  chrome_options.add_argument('--headless')
-  chrome_options.add_argument('--no-sandbox')
-  chrome_options.add_argument('--disable-dev-shm-usage')
-  driver = webdriver.Chrome(service=service_object, options=chrome_options)
+  fireFox_options = Options()
+  fireFox_options.add_argument("--headless")
+  service = Service(GeckoDriverManager().install())
+  driver = webdriver.Firefox(service=service, options=fireFox_options)
   driver.get(url)
   html = driver.page_source
   return html
