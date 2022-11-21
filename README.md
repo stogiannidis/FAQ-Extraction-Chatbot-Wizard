@@ -1,7 +1,7 @@
 # FAQ Generation Wizard!
 
-This repo contains all the work for Team Helvia Labs contribution in Cohere's Thanksgiving Hackathon
-[View Streamlit Demo](https://faq-extraction-wizard.streamlit.app/) 
+This repo contains all the work for Team Helvia Labs contribution in Cohere's Thanksgiving Hackathon <br>
+<pre>	         [View Streamlit Demo](https://faq-extraction-wizard.streamlit.app/) 
 
 ## How it works
 
