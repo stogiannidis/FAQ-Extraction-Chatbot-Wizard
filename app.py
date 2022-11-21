@@ -16,7 +16,7 @@ with faq_extraction:
         st.header("Generated content")
         bot = generate_faq_bot(link)
     
-        st.subheader(f"Company name: {bot['name']}")
+        st.write(f"**Company name**: {bot['name']}")
         st.write(f"**Sector**: {bot['sector']}")
 
         st.write(f"**FAQ 1**: {bot['questions'][0]}")
